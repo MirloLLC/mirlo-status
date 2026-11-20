@@ -1,0 +1,113 @@
+owner: MirloLLC
+repo: mirlo-status
+
+sites:
+  # Plataforma: lo que un cliente abre todos los días.
+  - name: Dashboard
+    url: https://app.mirlo.com
+    tags: [plataforma]
+  - name: Autenticación
+    url: https://auth.mirlo.com/realms/mirlo-internal/.well-known/openid-configuration
+    tags: [plataforma]
+  - name: Sitio web
+    url: https://mirlo.com
+    tags: [plataforma]
+  - name: Portal de Partners
+    url: https://partners.mirlo.com
+    tags: [plataforma]
+  - name: Soporte
+    url: https://t.mirlo.com
+    tags: [plataforma]
+
+  # Módulos: `/ready` no dice "el proceso vive", dice "el módulo puede atender".
+  # Consulta la base y responde 503 cuando no está, así la página se pone en rojo
+  # cuando el cliente no puede trabajar, no cuando el pod se murió del todo.
+  - name: Chat
+    url: https://messages.mirlo.com/ready
+    tags: [modulos]
+  - name: Llamadas
+    url: https://voip.mirlo.com/ready
+    tags: [modulos]
+  - name: Flujos
+    url: https://flows.mirlo.com/ready
+    tags: [modulos]
+  - name: CRM
+    url: https://crm.mirlo.com/ready
+    tags: [modulos]
+  - name: Agentes de llamadas
+    url: https://outbound.mirlo.com
+    tags: [modulos]
+
+  # Proveedores de los que dependen los módulos. Si uno se cae, el síntoma
+  # aparece en Mirlo pero la causa está acá.
+  - name: Twilio
+    url: https://status.twilio.com/api/v2/status.json
+    tags: [proveedores]
+  - name: OpenAI
+    url: https://status.openai.com/api/v2/summary.json
+    tags: [proveedores]
+  - name: ElevenLabs
+    url: https://api.elevenlabs.io/v1/voices
+    tags: [proveedores]
+  - name: Deepgram
+    url: https://api.deepgram.com/v1/projects
+    # Sin API key contesta 401, que es su respuesta sana: tratarlo como caída
+    # dejaría el proveedor en rojo permanente.
+    expectedStatusCodes:
+      - 401
+    tags: [proveedores]
+
+status-website:
+  cname: status.mirlo.com
+  logoUrl: https://mirlo.com/favicon.ico
+  name: Estado de Mirlo
+  introTitle: "Estado de **Mirlo**"
+  introMessage: Disponibilidad de la plataforma y de los servicios de los que depende. [Ir a mirlo.com](https://mirlo.com).
+  navbar:
+    - title: Mirlo
+      href: https://mirlo.com
+    - title: Dashboard
+      href: https://app.mirlo.com
+    - title: Documentación
+      href: https://developers.mirlo.com
+  theme: light
+  css: |
+    :root {
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --body-background-color: #f4ede6;
+      --body-color: #1f262c;
+      --nav-background-color: #1f262c;
+      --nav-color: #f4ede6;
+      --status-up-color: #16a34a;
+      --status-down-color: #c9521b;
+      --status-degraded-color: #e36326;
+      --link-color: #b04817;
+    }
+    body { font-family: var(--font-family); }
+    nav { background: #1f262c !important; }
+    nav a { color: #f4ede6 !important; }
+    .main-header h1 { font-weight: 800; letter-spacing: -0.04em; }
+
+workflowSchedule:
+  graphs: "0 0 * * *"
+  responseTime: "0 23 * * *"
+  staticSite: "0 1 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 * * *"
+  uptime: "*/15 * * * *"
+
+i18n:
+  activeIncidents: Incidentes activos
+  allSystemsOperational: Todos los sistemas operativos
+  incidentReport: "Reporte del incidente en $SITE_NAME"
+  activeIncidentSummary: "Abierto el $DATE"
+  incidentFixed: Resuelto
+  incidentOngoing: En curso
+  incidentDetails: Detalle del incidente
+  uptimeHistory: Historial de disponibilidad
+  responseTimeHistory: Historial de tiempo de respuesta
+  liveStatus: Estado en vivo
+  overallUptime: "Disponibilidad general: $UPTIME"
+  down: Caído
+  up: Operativo
+  degraded: Degradado
