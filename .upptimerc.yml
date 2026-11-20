@@ -34,6 +34,9 @@ sites:
   - name: CRM
     url: https://crm.mirlo.com/ready
     tags: [modulos]
+  - name: Meetings
+    url: https://meeting.mirlo.com/ready
+    tags: [modulos]
   - name: Agentes de llamadas
     url: https://outbound.mirlo.com
     tags: [modulos]
