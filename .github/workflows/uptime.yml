@@ -14,3 +14,9 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          # uptime-monitor reads notification secrets from SECRETS_CONTEXT, not from
+          # the plain environment. Only the Slack keys are forwarded on purpose: the
+          # token is already passed above and must not end up inside this JSON blob.
+          # NOTIFICATION_SLACK_WEBHOOK (no _URL) is required by v1.41.3 to register
+          # the webhook provider; newer versions dropped that gate.
+          SECRETS_CONTEXT: '{"NOTIFICATION_SLACK":${{ toJson(secrets.NOTIFICATION_SLACK) }},"NOTIFICATION_SLACK_WEBHOOK":${{ toJson(secrets.NOTIFICATION_SLACK_WEBHOOK) }},"NOTIFICATION_SLACK_WEBHOOK_URL":${{ toJson(secrets.NOTIFICATION_SLACK_WEBHOOK_URL) }}}'
