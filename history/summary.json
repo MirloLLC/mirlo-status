@@ -130,18 +130,20 @@
     "url": "https://flows.mirlo.com/ready",
     "icon": "https://icons.duckduckgo.com/ip3/flows.mirlo.com.ico",
     "slug": "flujos",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 210,
-    "timeDay": 223,
-    "timeWeek": 210,
-    "timeMonth": 210,
-    "timeYear": 210,
-    "dailyMinutesDown": {}
+    "time": 208,
+    "timeDay": 213,
+    "timeWeek": 208,
+    "timeMonth": 208,
+    "timeYear": 208,
+    "dailyMinutesDown": {
+      "2026-11-23": 0
+    }
   },
   {
     "name": "CRM",
