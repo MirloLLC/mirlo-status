@@ -112,18 +112,20 @@
     "url": "https://voip.mirlo.com/ready",
     "icon": "https://icons.duckduckgo.com/ip3/voip.mirlo.com.ico",
     "slug": "llamadas",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 195,
-    "timeDay": 211,
-    "timeWeek": 195,
-    "timeMonth": 195,
-    "timeYear": 195,
-    "dailyMinutesDown": {}
+    "time": 205,
+    "timeDay": 235,
+    "timeWeek": 205,
+    "timeMonth": 205,
+    "timeYear": 205,
+    "dailyMinutesDown": {
+      "2026-11-24": 0
+    }
   },
   {
     "name": "Flujos",
@@ -137,7 +139,7 @@
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 220,
-    "timeDay": 235,
+    "timeDay": 256,
     "timeWeek": 220,
     "timeMonth": 220,
     "timeYear": 220,
