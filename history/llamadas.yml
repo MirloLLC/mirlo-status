@@ -1,7 +1,7 @@
 url: https://voip.mirlo.com/ready
-status: up
-code: 200
-responseTime: 211
-lastUpdated: 2026-11-23T23:09:11.457Z
+status: down
+code: 502
+responseTime: 258
+lastUpdated: 2026-11-24T17:50:11.932Z
 startTime: 2026-11-20T19:00:02.301Z
 generator: Upptime <https://github.com/upptime/upptime>
