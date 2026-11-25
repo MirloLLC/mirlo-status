@@ -1,7 +1,7 @@
 url: https://auth.mirlo.com/realms/mirlo-internal/.well-known/openid-configuration
 status: up
 code: 200
-responseTime: 192
-lastUpdated: 2026-11-24T23:08:08.852Z
+responseTime: 186
+lastUpdated: 2026-11-25T23:08:28.457Z
 startTime: 2026-11-20T18:59:58.498Z
 generator: Upptime <https://github.com/upptime/upptime>
